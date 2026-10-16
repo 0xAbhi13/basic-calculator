@@ -20,9 +20,7 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1200&color=0F2557&center=true&vCenter=true&width=620&lines=Type+or+click...every+key+works!;No+backend+%E2%80%A2+No+build+%E2%80%A2+Just+open+index.html" alt="Greeting typing animation" />
 </div>
 
-Basic Calculator of **Abhishek Shahaji Jadhav** — Web Developer & first-year BCA student at VIIT, Baramati. Built with **HTML5 + CSS3 + Vanilla JavaScript**: no frameworks, no libraries, no APIs, no build step, no external assets in the app itself.
 
-> **Internship attribution:** 45-day Web Development Internship at **Veda Technology** — Task 7: Basic Calculator.
 
 <details>
 <summary><b>📖 Table of Contents (click to expand)</b></summary>
@@ -159,64 +157,6 @@ node --check script.js
 | ![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white) | https://www.linkedin.com/in/0xabhi13/ |
 | ![Portfolio](https://img.shields.io/badge/Portfolio-2563EB?style=flat-square&logo=globe&logoColor=white) | https://0xabhi13.github.io/MyPortfolio/ |
 
-## 📝 My Approach
-
-1. **Read the brief first:** four operations, decimals without `5.2.3`, `=` accuracy, `C` reset, chained + repeated equals, divide-by-zero guard, negatives, overflow-safe display, no malformed expressions, full keyboard map, error recovery, no `eval()`, sequential-vs-precedence documented, separate files, relative paths.
-2. **Built the structure:** semantic landmarks, single `h1` ("Basic Calculator") + subtitle, navy display with a history line + large current value + `role="alert"` error slot, 19-button CSS Grid (`C ⌫ ± ÷ / 7–9 × / 4–6 − / 1–3 + / 0-wide . =`), model note, keyboard-shortcut card.
-3. **Styled mobile-up:** same token system as Task 6 (light / navy / blue); number keys pale, operators blue-tint, `C` navy, `=` solid blue with pending-operator highlight; shrinking display type past 12 characters; 480 px breakpoint; `prefers-reduced-motion` support.
-4. **Wrote honest JS:** explicit state (`currentInput`, `previousInput`, `operator`, `shouldResetDisplay`, `lastOperator`, `lastOperand`, `errorState`); `operate()` switch with `toPrecision(12)` float cleanup; `formatResult()` with magnitude-based exponential fallback; `textContent` only; error recovery on next digit; keyboard handler with `preventDefault` on `/` and `Enter`.
-5. **Tested honestly:** syntax check plus 40 executed assertions against the real `script.js` (29 core + 11 edge cases) covering every row of the brief's testing checklist; fixed one real precision bug found (`1 ÷ 3` rendering) before finishing.
-
-## ✅ Outcome
-
-A complete, responsive, dependency-free Basic Calculator: correct results on all five brief examples (`8` / `5` / `42` / `4` / `3.7`), clean `0.1 + 0.2 = 0.3`, friendly divide-by-zero error with recovery, decimal/operator guards, chained and repeated equals, negatives, backspace and sign toggle, full keyboard control, and zero console errors. Ready to push to a public repo and deploy on GitHub Pages or Vercel.
-
-## 🌐 Deployment
-
-**GitHub Pages:**
-
-```powershell
-Set-Location "<path-to>\internship-task-7"
-git init -b main
-git add index.html style.css script.js README.md Veda_Technology_Task_7_Project_Report.docx assets
-git commit -m "Task 7: Basic Calculator (HTML + CSS + JS)"
-git remote add origin <your-repository-url>
-git push -u origin main
-```
-
-Then GitHub → **Settings → Pages → Deploy from a branch → `main` / root** → GitHub shows your live URL.
-
-> Keep `index.html`, `style.css`, and `script.js` in the same directory with relative links so Pages resolves them correctly. The repository URL above is a placeholder — replace it with your real repo. Do not push unless you intend to submit — the commands above are provided for the submission step only.
-
-**Vercel:**
-
-1. Push the project to GitHub.
-2. Go to <https://vercel.com> → **Add New → Project** → import the repository.
-3. Set the **Root Directory** to `internship-task-7` (if the repo holds all internship tasks).
-4. Framework preset: **Other**. No build command, no output directory.
-5. Deploy.
-
-## 🧪 Testing Checklist
-
-- [x] `5 + 3 =` → `8`.
-- [x] `9 − 4 =` → `5`.
-- [x] `6 × 7 =` → `42`.
-- [x] `8 ÷ 2 =` → `4`.
-- [x] `2.5 + 1.2 =` → `3.7`.
-- [x] `0.1 + 0.2 =` → `0.3` (no `0.30000000000000004`).
-- [x] `5 ÷ 0` shows `Can't divide by zero`; typing a digit starts fresh, `C` fully resets.
-- [x] Multiple decimal points prevented (`5 . 2 . 3` → `5.23`).
-- [x] Consecutive operators replace instead of breaking (`5 + − 3 =` → `2`).
-- [x] `C` resets display, history, operator, repeat memory, and error state.
-- [x] `⌫` deletes the last digit (`123` → `12`); single digit → `0`.
-- [x] Keyboard: `2 + 3 Enter` → `5`; `Backspace` deletes; `Escape`/`c` clears; `,` works as decimal point.
-- [x] Negative results (`4 − 9 = −5`) and `±` toggle (including negative second operand).
-- [x] Chained sequential ops (`12 + 3 × 2 = 30`; `2 + 3 + 4 = 9`) and repeated `=` (`5 + 3 = 8 → 11 → 14`).
-- [x] Lone `=` does nothing; `5 + =` doubles to `10` (no `NaN` anywhere).
-- [x] Long results stay readable (`1 ÷ 3 = 0.333333333333`; huge results use exponential notation; typing capped at 12 digits).
-- [x] No JavaScript console errors (`node --check` clean; all logic executed through 40 passing assertions).
-- [x] Responsive on mobile and desktop (grid keys, display type shrinks past 12 characters).
-- [x] The project folder includes `index.html`, `style.css`, `script.js`, `README.md`, `assets`, and the project report.
 
 ## 📜 JavaScript Concepts
 
@@ -248,35 +188,6 @@ Then GitHub → **Settings → Pages → Deploy from a branch → `main` / root*
 | **`⌫` (click or `Backspace`)** | Deletes the last digit; on an error it resets; after `=` it edits the result |
 | **`±`** | Toggles the sign of the entry or result; after an operator it starts a negative second operand |
 | **`.` (click, `.`, or `,`)** | Adds one decimal point; extra presses ignored; recovers from an error into `0.` |
-
-## 📸 Screenshots
-
-> Placeholder — add a screenshot after running the app.
-
-```text
-[ Screenshot coming soon — capture the calculator showing 12 + 3 × 2 = 30 ]
-```
-
-To add one later, save an image as `screenshot.png` in this folder and embed it:
-
-```markdown
-![Basic Calculator screenshot](./screenshot.png)
-```
-
-## ⚠️ Limitations
-
-- **Sequential model only** — chained operations run left to right (`2 + 3 × 4 = 20`, not `14`); stated in the app, README, and report.
-- No parentheses, percentages, or memory keys — out of scope for Task 7.
-- Input capped at 12 digits per number to protect the display.
-- Results ≥ 1e12 or < 1e-9 fall back to exponential notation (e.g. `9.99e+14`).
-- No data is stored or sent anywhere — everything runs locally in the browser.
-
-## Accuracy Notes
-
-- All expected values verified by executed Node assertions against the real `script.js` — no invented results.
-- Skills are presented as *learning/using* at internship level.
-- Internship is described as *ongoing, project-based learning*.
-- App uses zero external requests; README badges/animations are docs-only.
 
 ---
 
