@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Basic Calculator — add, subtract, multiply and divide with keyboard support. Veda Technology Web Development Internship Task 7." />
+  <title>Basic Calculator | Veda Technology Internship Task 7</title>
+  <meta name="theme-color" content="#0f2557" />
+  <!-- Relative paths for GitHub Pages compatibility -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Basic Calculator</h1>
+      <p class="subtitle">Clean, responsive calculator with keyboard support — no <code>eval()</code></p>
+    </header>
+
+    <main>
+      <!-- Calculator card -->
+      <section class="card calculator" aria-label="Basic calculator">
+        <!-- Display: history line + current value -->
+        <div class="display" role="status" aria-live="polite" aria-atomic="true">
+          <div id="historyDisplay" class="history" aria-hidden="true">&nbsp;</div>
+          <div id="currentDisplay" class="current">0</div>
+          <p id="errorDisplay" class="error-message" role="alert" hidden></p>
+        </div>
+
+        <!-- Buttons laid out with CSS Grid -->
+        <div class="keys" role="group" aria-label="Calculator buttons">
+          <button type="button" class="btn btn-clear" data-action="clear" aria-label="Clear (Escape)">C</button>
+          <button type="button" class="btn btn-utility" data-action="backspace" aria-label="Delete last digit (Backspace)">&#9003;</button>
+          <button type="button" class="btn btn-utility" data-action="negate" aria-label="Toggle positive or negative">&plusmn;</button>
+          <button type="button" class="btn btn-operator" data-operator="/" aria-label="Divide">&divide;</button>
+
+          <button type="button" class="btn btn-number" data-number="7">7</button>
+          <button type="button" class="btn btn-number" data-number="8">8</button>
+          <button type="button" class="btn btn-number" data-number="9">9</button>
+          <button type="button" class="btn btn-operator" data-operator="*" aria-label="Multiply">&times;</button>
+
+          <button type="button" class="btn btn-number" data-number="4">4</button>
+          <button type="button" class="btn btn-number" data-number="5">5</button>
+          <button type="button" class="btn btn-number" data-number="6">6</button>
+          <button type="button" class="btn btn-operator" data-operator="-" aria-label="Subtract">&minus;</button>
+
+          <button type="button" class="btn btn-number" data-number="1">1</button>
+          <button type="button" class="btn btn-number" data-number="2">2</button>
+          <button type="button" class="btn btn-number" data-number="3">3</button>
+          <button type="button" class="btn btn-operator" data-operator="+" aria-label="Add">&plus;</button>
+
+          <button type="button" class="btn btn-number btn-zero" data-number="0">0</button>
+          <button type="button" class="btn btn-number" data-action="decimal" aria-label="Decimal point">.</button>
+          <button type="button" class="btn btn-equals" data-action="equals" aria-label="Equals (Enter)">=</button>
+        </div>
+
+        <p class="model-note">
+          Sequential model: chained operations calculate left to right
+          (e.g. <span class="nowrap">12 + 3 &times; 2 = 30</span>).
+        </p>
+      </section>
+
+      <!-- Keyboard help -->
+      <section class="card help" aria-label="Keyboard shortcuts">
+        <h2>Keyboard shortcuts</h2>
+        <ul>
+          <li><kbd>0</kbd>–<kbd>9</kbd> and <kbd>.</kbd> — enter numbers</li>
+          <li><kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd> — operators</li>
+          <li><kbd>Enter</kbd> or <kbd>=</kbd> — calculate</li>
+          <li><kbd>Backspace</kbd> — delete last digit</li>
+          <li><kbd>Esc</kbd> — clear</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Veda Technology &bull; 45-Day Web Development Internship &bull; Task 7: Basic Calculator</p>
+    </footer>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

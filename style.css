@@ -1,0 +1,290 @@
+/* Basic Calculator — Task 7
+   Palette: light background, white card, blue accents, dark navy text.
+   Layout: centered container, CSS Grid keys, responsive + focus visible. */
+
+:root {
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --navy: #0f2557;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --operator-bg: #dbeafe;
+  --operator-text: #1e40af;
+  --number-bg: #f8fafc;
+  --number-border: #e2e8f0;
+  --text: #0f2557;
+  --muted: #64748b;
+  --error: #b91c1c;
+  --shadow: 0 10px 30px rgba(15, 37, 87, 0.12);
+  --radius: 16px;
+  --focus: 0 0 0 3px rgba(37, 99, 235, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.page {
+  width: 100%;
+  max-width: 460px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+  font-size: 1.9rem;
+  color: var(--navy);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.subtitle code {
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.85em;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.calculator {
+  border: 1px solid #e2e8f0;
+}
+
+/* Display */
+.display {
+  background: var(--navy);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px 12px;
+  margin-bottom: 16px;
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.history {
+  min-height: 1.25rem;
+  font-size: 0.9rem;
+  color: #bfdbfe;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.current {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: right;
+  line-height: 1.1;
+  word-break: break-all;
+  font-variant-numeric: tabular-nums;
+}
+
+.current.error {
+  color: #fecaca;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.error-message {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #fecaca;
+  text-align: right;
+}
+
+/* Buttons grid */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 16px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.06s ease, background-color 0.12s ease, box-shadow 0.12s ease;
+  line-height: 1;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:hover {
+  filter: brightness(0.97);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.btn-number {
+  background: var(--number-bg);
+  border-color: var(--number-border);
+  color: var(--navy);
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+.btn-operator {
+  background: var(--operator-bg);
+  color: var(--operator-text);
+}
+
+.btn-operator.active {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-utility {
+  background: #eef2ff;
+  color: var(--navy);
+  border-color: #e0e7ff;
+}
+
+.btn-clear {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.btn-clear:hover {
+  background: #1a356e;
+}
+
+.btn-equals {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-equals:hover {
+  background: var(--blue-dark);
+}
+
+.model-note {
+  margin: 14px 2px 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Help card */
+.help {
+  margin-top: 16px;
+  padding: 16px 20px;
+}
+
+.help h2 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.help ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #334155;
+  font-size: 0.92rem;
+}
+
+.help li {
+  margin: 4px 0;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 1px 6px;
+  text-align: center;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85em;
+}
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .btn {
+    padding: 14px 0;
+    font-size: 1.15rem;
+  }
+
+  .current {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page {
+    max-width: 480px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

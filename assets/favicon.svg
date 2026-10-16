@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Basic Calculator favicon">
+  <rect width="64" height="64" rx="14" fill="#0f2557"/>
+  <rect x="14" y="12" width="36" height="10" rx="3" fill="#ffffff" opacity="0.9"/>
+  <g fill="#2563eb">
+    <rect x="14" y="27" width="10" height="8" rx="2"/>
+    <rect x="27" y="27" width="10" height="8" rx="2"/>
+    <rect x="40" y="27" width="10" height="8" rx="2"/>
+    <rect x="14" y="38" width="10" height="8" rx="2"/>
+    <rect x="27" y="38" width="10" height="8" rx="2"/>
+  </g>
+  <rect x="40" y="38" width="10" height="8" rx="2" fill="#f59e0b"/>
+</svg>
